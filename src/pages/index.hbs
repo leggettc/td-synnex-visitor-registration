@@ -51,13 +51,8 @@
       }
       
       function loadWidget() {
-        const queryparams = new URLSearchParams(window.location.search);
-        let policyId = "";      
-        if(queryparams.has("policyId")){
-          policyId = queryparams.get("policyId");
-        } else {
-          console.log("Error: policyId query parameter not found!");
-        }
+        
+        var policyId = "{{reg_policy_id}}";
 
         var props = {
           config: {
@@ -65,7 +60,7 @@
             apiRoot: "https://api.singularkey.com/v1",
             accessToken: "{{access_token}}",
             companyId: "{{company_id}}",
-            policyId: policyId,
+            policyId: policyId
           },
           useModal: false,
           successCallback,
