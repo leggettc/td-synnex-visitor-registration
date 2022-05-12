@@ -4,6 +4,10 @@
 */
 
 const path = require("path");
+const got = require("got"); 
+const NodeCache = require( "node-cache" );
+const jose = require('jose')
+const simpleCache = new NodeCache();
 
 // Require the fastify framework and instantiate it
 const fastify = require("fastify")({
