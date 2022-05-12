@@ -25,6 +25,7 @@
     />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="style.css" rel="stylesheet" />
+    <!-- Custom Style -->
     <style>
 
       img.pinglogo { 
@@ -38,6 +39,87 @@
       }
 
     </style>
+    <script type="text/javascript">
+
+      function displayContentDiv(){
+          setTimeout(() => {
+            console.log("Delayed for .5 second.");
+            //document.getElementById("contentdiv").style.visibility = "visible";
+            //document.getElementById("footer").style.visibility = "visible";              
+          }, "750");
+        
+      }
+      
+      function loadWidget() {
+        const queryparams = new URLSearchParams(window.location.search);
+        let policyId = "";      
+        if(queryparams.has("policyId")){
+          policyId = queryparams.get("policyId");
+        } else {
+          console.log("Error: policyId query parameter not found!");
+        }
+
+        var props = {
+          config: {
+            method: "runFlow",
+            apiRoot: "https://api.singularkey.com/v1",
+            accessToken: "{{access_token}}",
+            companyId: "{{company_id}}",
+            policyId: policyId,
+          },
+          useModal: false,
+          successCallback,
+          errorCallback,
+          onCloseModal,
+        };
+        /*** Invoke Singular Key Widget ****/
+        console.log(props);
+        singularkey.skRenderScreen(
+          document.getElementById("skWidget"),
+          props
+        );        
+        
+      }     
+      
+      function successCallback(response) {
+        console.log(response);
+        if(response.success){
+          //console.log("A successful response!");
+          //console.log("Response ID Token: " + response.id_token);
+          if(response.id_token != null){
+            postForm(response.id_token);
+            //document.getElementById("token").value = response.id_token;
+            //console.log("access_token: ", response.id_token);
+            //document.getElementById("frmContinue").submit();
+          }
+        }
+      }
+
+      function errorCallback(error) {
+        console.log(error);
+      }
+
+      function onCloseModal() {
+        console.log("onCloseModal");
+      } 
+      
+      function postForm(tokenValue){
+        
+        const form = document.createElement('form');
+        form.method = "post";
+        form.action = "/agenda";
+
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = "token";
+        hiddenField.value = tokenValue;
+        
+        form.appendChild(hiddenField);
+        document.body.appendChild(form);
+        form.submit();        
+
+      }
+    </script>    
   </head>
   <body id="page-top">
     <!-- Navigation-->
