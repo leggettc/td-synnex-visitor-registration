@@ -86,7 +86,7 @@
           //console.log("A successful response!");
           //console.log("Response ID Token: " + response.id_token);
           if(response.id_token != null){
-            postForm(response.id_token);
+            //postForm(response.id_token);
             //document.getElementById("token").value = response.id_token;
             //console.log("access_token: ", response.id_token);
             //document.getElementById("frmContinue").submit();
@@ -171,7 +171,51 @@
           </button>
         </div>
       </div>
-    </header>
+
+    
+    <div>
+    <section id="bodysection" class="register">
+        <br>
+        <h1>
+          Ping Identity Health Care Day Agenda
+        </h1>
+        <br>
+        <table class="table" id="agenda">
+          <tr>
+            <th>Time</th>
+            <th>Topic</th>
+            <th>Presenter(s)</th>
+          </tr>
+          <tr>
+            <td>10:00am - 10:15am</td>
+            <td>Partner Registration</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>10:15am - 10:50am</td>
+            <td>Zero Trust</td>
+            <td>Aubrey Turner</td>
+          </tr> 
+          <tr>
+            <td>11:00am - 11:50am</td>
+            <td>Whiteboard for DaVinci</td>
+            <td>Chris Leggett, Eric Kender</td>
+          </tr>   
+          <tr>
+            <td>12:00pm - 1:00pm</td>
+            <td>Lunch</td>
+            <td></td>
+          </tr>   
+          <tr>
+            <td>1:00pm - 2:00pm</td>
+            <td>BxHealth Demo</td>
+            <td>Chris Leggett, Eric Kender</td>
+          </tr>          
+        </table>
+           
+    </section>      
+    </div>
+      </header>
     <!-- Modal -->
     <div
       class="modal fade"
