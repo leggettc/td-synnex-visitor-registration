@@ -47,12 +47,7 @@
       type="text/javascript"
       src="https://sdk.singularkey.com/latest/singularkey.js"
     ></script>     
-    <script type="text/javascript">     
-      
-      var myCollapse = document.getElementById('agendaDiv');
-      var bsCollapse = new bootstrap.Collapse(myCollapse, {
-        toggle: true
-      });      
+    <script type="text/javascript">           
       
       function displayContentDiv(){
           setTimeout(() => {
@@ -270,7 +265,12 @@
           2022</span>
       </div>
     </footer>
-
+    <script>
+      var agendaDiv = document.getElementById("agendaDiv");
+      var bsCollapse = new bootstrap.Collapse(agendaDiv);   
+      bsCollapse.hide();    
+    
+    </script>
     <!-- Core theme JS-->
   </body>
 </html>
