@@ -39,12 +39,21 @@
       }
 
     </style>
+    <!-- Bootstrap core JS-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    ></script>    
     <script
       type="text/javascript"
       src="https://sdk.singularkey.com/latest/singularkey.js"
     ></script>     
-    <script type="text/javascript">
-
+    <script type="text/javascript">     
+      
+      var myCollapse = document.getElementById('agendaDiv');
+      var bsCollapse = new bootstrap.Collapse(myCollapse, {
+        toggle: true
+      });      
+      
       function displayContentDiv(){
           setTimeout(() => {
             console.log("Delayed for .5 second.");
@@ -261,10 +270,7 @@
           2022</span>
       </div>
     </footer>
-    <!-- Bootstrap core JS-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
+
     <!-- Core theme JS-->
   </body>
 </html>
