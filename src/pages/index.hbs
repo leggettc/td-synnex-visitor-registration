@@ -185,16 +185,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-            <!--
-            <button
-              type="button"
-              class="close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div id="skWidget" class="modal-body">
           
@@ -221,19 +212,20 @@
                     <input type="text" id="phone" class="form-control" placeholder="Mobile Phone" aria-label="Mobile Phone">
                     </div>
                 </div>    
-                <div class="row p-3">
-                    <div class="col-md-12">
+                <div class="row p-3 w-auto">
+                    <div class="d-grid gap-2">
                         <button
-                            style="max-width: 100%;"
+                            class="btn btn-secondary"
                             id="btnRegister"
                             data-skcomponent="skbutton"
                             data-skbuttontype="form-submit"
                             data-skbuttonvalue="register"
                             data-skform="frmRegister" >
-                            <i class="btn btn-secondary" aria-hidden="true"></i> Register
+                            Register
                         </button>
                     </div>
                 </div>
+              <div class="row p-3">
                 <div class="error-message-wrapper">
                     <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="fname"></div>
                     <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="lname"></div>
@@ -241,7 +233,8 @@
                     <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="email"></div>
                     <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="password"></div>
                     <div data-skcomponent="skerror" class="error-message"></div>
-                </div>      
+                </div> 
+              </div>                
             </form>            
             
           </div>
