@@ -2267,9 +2267,9 @@ progress {
 .form-control:focus {
   color: #212529;
   background-color: #fff;
-  border-color: #f784bc;
+  border-color: #1c3044;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(238, 9, 121, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(28, 48, 68, 0.25);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
@@ -3176,9 +3176,9 @@ fieldset:disabled .btn {
 }
 
 .btn-secondary {
-  color: #000;
-  background-color: #CFD454;
-  border-color: #CFD454;
+  color: #FFF;
+  background-color: #1c3044;
+  border-color: #1c3044;
 }
 .btn-secondary:hover {
   color: #000;
@@ -3187,17 +3187,17 @@ fieldset:disabled .btn {
 }
 .btn-check:focus + .btn-secondary,
 .btn-secondary:focus {
-  color: #000;
-  background-color: #CFD454;
-  border-color: #CFD454;
-  box-shadow: 0 0 0 0.25rem rgba(217, 90, 0, 0.5);
+  color: #FFF;
+  background-color: #1c3044;
+  border-color: #1c3044;
+  box-shadow: 0 0 0 0.25rem rgba(28, 48, 68, 0.5);
 }
 .btn-check:checked + .btn-secondary,
 .btn-check:active + .btn-secondary,
 .btn-secondary:active,
 .btn-secondary.active,
 .show > .btn-secondary.dropdown-toggle {
-  color: #000;
+  color: #FFF;
   background-color: #CFD454;
   border-color: #CFD454;
 }
@@ -3206,11 +3206,11 @@ fieldset:disabled .btn {
 .btn-secondary:active:focus,
 .btn-secondary.active:focus,
 .show > .btn-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(217, 90, 0, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(28, 48, 68, 0.5);
 }
 .btn-secondary:disabled,
 .btn-secondary.disabled {
-  color: #000;
+  color: #FFF;
   background-color: #ff6a00;
   border-color: #ff6a00;
 }
