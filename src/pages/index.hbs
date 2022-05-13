@@ -73,10 +73,10 @@
         };
         /*** Invoke Singular Key Widget ****/
         console.log(props);
-        singularkey.skRenderScreen(
-          document.getElementById("skWidget"),
-          props
-        );        
+        //singularkey.skRenderScreen(
+        //  document.getElementById("skWidget"),
+        //  props
+        //);        
         
       }     
       
@@ -186,8 +186,38 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Register Here</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              
           </div>
-          <div id="skWidget" class="modal-body"></div>
+          <div id="skWidget" class="modal-body">
+<form id="verificationCodeForm" data-id="verificationCodeForm">            
+<div class="row g-3 p-3">
+    <div class="col-md-12">
+    <input type="text" id="verificationCode" name="verificationCode"  class="form-control" placeholder="Verification Code" aria-label="Verification Code">
+    </div>
+</div>  
+<div class="row p-3">
+    <div class="col-md-12 d-grid gap-2">
+        <button
+            class="btn btn-secondary"
+            id="btnVerify"
+            data-skcomponent="skbutton"
+            data-skbuttontype="form-submit"
+            data-skbuttonvalue="verify"
+            data-skform="verificationCodeForm" >
+            Verify
+        </button>
+    </div>
+</div>
+<div class="row row g-3 p-3">
+    <div class="col-md-12">
+        <div class="error-message-wrapper">
+            <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="verificationCode"></div>
+            <div data-skcomponent="skerror" class="error-message"></div>
+        </div>
+    </div>
+</div>            
+            </form>            
+          </div>
           <div class="modal-footer">
             <!--
             <button
