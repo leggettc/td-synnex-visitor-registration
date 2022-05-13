@@ -73,10 +73,10 @@
         };
         /*** Invoke Singular Key Widget ****/
         console.log(props);
-        //singularkey.skRenderScreen(
-        //  document.getElementById("skWidget"),
-        //  props
-        //);        
+        singularkey.skRenderScreen(
+          document.getElementById("skWidget"),
+          props
+        );        
         
       }     
       
@@ -184,60 +184,10 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Register Here</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div id="skWidget" class="modal-body">
-          
-            <form id="frmRegister">
-            <h3>Provide your information to register.</h3>
-                <div class="row g-3 p-3">
-                    <div class="col-md-6">
-                    <input type="text" id="email" class="form-control" placeholder="Email" aria-label="Email">
-                    </div>
-                    <div class="col-md-6">
-                    <input type="text" id="password" class="form-control" placeholder="Password" aria-label="Password">
-                    </div>
-                </div>
-                <div class="row g-3 p-3">
-                    <div class="col-md-6">
-                    <input type="text" id="fname" class="form-control" placeholder="First name" aria-label="First name">
-                    </div>
-                    <div class="col-md-6">
-                    <input type="text" id="lname" class="form-control" placeholder="Last name" aria-label="Last name">
-                    </div>
-                </div>    
-                <div class="row g-3 p-3">
-                    <div class="col-md-12">
-                    <input type="text" id="phone" class="form-control" placeholder="Mobile Phone" aria-label="Mobile Phone">
-                    </div>
-                </div>    
-                <div class="row p-3 w-auto">
-                    <div class="d-grid gap-2">
-                        <button
-                            class="btn btn-secondary"
-                            id="btnRegister"
-                            data-skcomponent="skbutton"
-                            data-skbuttontype="form-submit"
-                            data-skbuttonvalue="register"
-                            data-skform="frmRegister" >
-                            Register
-                        </button>
-                    </div>
-                </div>
-              <div class="row p-3">
-                <div class="error-message-wrapper">
-                    <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="fname"></div>
-                    <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="lname"></div>
-                    <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="phone"></div>
-                    <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="email"></div>
-                    <div data-skcomponent="skerrormessage" class="error-message" data-skerrorid="password"></div>
-                    <div data-skcomponent="skerror" class="error-message"></div>
-                </div> 
-              </div>                
-            </form>            
-            
-          </div>
+          <div id="skWidget" class="modal-body"></div>
           <div class="modal-footer">
             <!--
             <button
