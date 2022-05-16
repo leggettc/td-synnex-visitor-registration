@@ -83,7 +83,7 @@
           //console.log("A successful response!");
           //console.log("Response ID Token: " + response.id_token);
           if(response.id_token != null){
-            validateToken({accesstoken : response.id_token });
+            validateToken({token : response.id_token });
             document.getElementById("mainRegisterbtn").style.visibility = "hidden";
             document.getElementById("agendaDiv").style.visibility = "visible";
             $('#exampleModalCenter').modal('hide');            
