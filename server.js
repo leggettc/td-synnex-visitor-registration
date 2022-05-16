@@ -111,7 +111,7 @@ fastify.get("/widget", function(request, reply) {
 *
 * Accepts body data indicating the user choice
 */
-fastify.post("/agenda", function(request, reply) {
+fastify.post("/validateToken", function(request, reply) {
   
   console.log("Token: " + request.body.token);
   const JWT = request.body.token;

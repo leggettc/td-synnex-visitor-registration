@@ -80,13 +80,13 @@
       function successCallback(response) {
         console.log(response);
         if(response.success){
-          document.getElementById("mainRegisterbtn").style.visibility = "hidden";
-          document.getElementById("agendaDiv").style.visibility = "visible";
-          $('#exampleModalCenter').modal('hide');
           //console.log("A successful response!");
           //console.log("Response ID Token: " + response.id_token);
           if(response.id_token != null){
-            //postForm(response.id_token);
+            validateToken({accesstoken : response.id_token });
+            document.getElementById("mainRegisterbtn").style.visibility = "hidden";
+            document.getElementById("agendaDiv").style.visibility = "visible";
+            $('#exampleModalCenter').modal('hide');            
             //document.getElementById("token").value = response.id_token;
             //console.log("access_token: ", response.id_token);
             //document.getElementById("frmContinue").submit();
@@ -119,7 +119,27 @@
 
       }
       
-      function validateToken()
+      function validateToken(payload){
+
+        var sub = "";
+        
+        fetch('https://cyberrange-registration.glitch.me/validateToken', {
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });        
+        
+      }
     </script>    
   </head>
   <body id="page-top" onload="loadWidget();">
