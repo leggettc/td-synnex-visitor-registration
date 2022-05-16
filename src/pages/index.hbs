@@ -71,7 +71,7 @@
         /*** Invoke Singular Key Widget ****/
         console.log(props);
         singularkey.skRenderScreen(
-          document.getElementById("skWidget"),
+          document.getElementById("skWidgetRegister"),
           props
         );        
         
@@ -83,10 +83,7 @@
           //console.log("A successful response!");
           //console.log("Response ID Token: " + response.id_token);
           if(response.id_token != null){
-            validateToken({token : response.id_token });
-            document.getElementById("mainRegisterbtn").style.visibility = "hidden";
-            document.getElementById("agendaDiv").style.visibility = "visible";
-            $('#exampleModalCenter').modal('hide');            
+            validateToken({token : response.id_token });       
             //document.getElementById("token").value = response.id_token;
             //console.log("access_token: ", response.id_token);
             //document.getElementById("frmContinue").submit();
@@ -133,6 +130,9 @@
         .then(response => response.json())
         .then(data => {
           console.log('Success:', data);
+          document.getElementById("mainRegisterbtn").style.visibility = "hidden";
+          document.getElementById("agendaDiv").style.visibility = "visible";
+          $('#exampleModalCenter').modal('hide');            
           
         })
         .catch((error) => {
@@ -158,8 +158,8 @@
         ><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Register</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Log In</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#registerModal">Log In</a></li>
           </ul>
         </div>
       </div>
@@ -187,7 +187,7 @@
             type="button"
             class="btn btn-primary btn-xl rounded-pill mt-5"
             data-bs-toggle="modal"
-            data-bs-target="#exampleModalCenter"
+            data-bs-target="#registerModal"
             value="{{reg_policy_id}}"
           >
             Register
@@ -246,20 +246,20 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="exampleModalCenter"
+      id="registerModal"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
+      aria-labelledby="registerModalCenterTitle"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Register Here</h5>
+            <h5 class="modal-title" id="registerModalLongTitle">Register Here</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               
           </div>
-          <div id="skWidget" class="modal-body">
+          <div id="skWidgetRegister" class="modal-body">
          </div>
           <div class="modal-footer">
             <!--
