@@ -131,7 +131,7 @@ fastify.post("/validateToken", function(request, reply) {
     let params = {   };
 
 
-    reply.send({"sub" : payload.sub});
+    reply.send({"sub" : payload.username});
   })();
   
 });
