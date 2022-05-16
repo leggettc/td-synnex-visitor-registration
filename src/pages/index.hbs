@@ -166,7 +166,7 @@
       }
     </script>    
   </head>
-  <body id="page-top" onload="loadRegisterWidget(); loadSignInWidget();">
+  <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container px-5">
@@ -182,8 +182,8 @@
         ><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#signInModal">Sign In</a></li>
+            <li class="nav-item"><a id="registerLink" class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#registerModal" onclick="loadRegisterWidget();">Register</a></li>
+            <li class="nav-item"><a id="signInLink" class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#signInModal" onclick="loadSignInWidget();">Sign In</a></li>
           </ul>
         </div>
       </div>
