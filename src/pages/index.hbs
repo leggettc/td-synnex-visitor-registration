@@ -51,7 +51,7 @@
     ></script>     
     <script type="text/javascript">           
       
-      function loadWidget() {
+      function loadRegisterWidget() {
         
         var policyId = "{{reg_policy_id}}";
 
@@ -76,6 +76,30 @@
         );        
         
       }     
+      
+      function loadSignInWidget() {
+        var policyId = "{{auth_policy_id}}";
+
+        var props = {
+          config: {
+            method: "runFlow",
+            apiRoot: "https://api.singularkey.com/v1",
+            accessToken: "{{access_token}}",
+            companyId: "{{company_id}}",
+            policyId: policyId
+          },
+          useModal: false,
+          successCallback,
+          errorCallback,
+          onCloseModal,
+        };
+        /*** Invoke Singular Key Widget ****/
+        console.log(props);
+        singularkey.skRenderScreen(
+          document.getElementById("skWidgetSignIn"),
+          props
+        );          
+      }
       
       function successCallback(response) {
         console.log(response);
@@ -142,7 +166,7 @@
       }
     </script>    
   </head>
-  <body id="page-top" onload="loadWidget();">
+  <body id="page-top" onload="loadRegisterWidget(); loadSignInWidget();">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container px-5">
@@ -159,7 +183,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#registerModal">Log In</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#signInModal">Log In</a></li>
           </ul>
         </div>
       </div>
@@ -274,6 +298,39 @@
         </div>
       </div>
     </div>
+    
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="signInModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="signInModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signInModalLongTitle">Register Here</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              
+          </div>
+          <div id="skWidgetSignIn" class="modal-body">
+         </div>
+          <div class="modal-footer">
+            <!--
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+            -->
+          </div>
+        </div>
+      </div>
+    </div>    
+    
     <!-- Footer-->
     <footer class="py-5 bg-black">
       <div class="container px-5 text-center"><img class="pinglogo" />
