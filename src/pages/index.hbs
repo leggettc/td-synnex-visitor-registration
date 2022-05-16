@@ -49,11 +49,10 @@
       type="text/javascript"
       src="https://sdk.singularkey.com/latest/singularkey.js"
     ></script>     
-    <script type="text/javascript">           
+    <script type="text/javascript">                       
       
       function loadRegisterWidget() {
         
-        singularkey.cleanup(document.getElementById("skWidgetSignIn"))
         
         var policyId = "{{reg_policy_id}}";
 
@@ -338,5 +337,16 @@
       </div>
     </footer>
     <!-- Core theme JS-->
+    <script>
+      
+      document.getElementById("signInModal").addEventListener('hidden.bs.modal', function (event) {
+        singularkey.cleanup(document.getElementById("skWidgetSignIn"));
+      });
+      
+      document.getElementById("registerModal").addEventListener('hidden.bs.modal', function (event) {
+        singularkey.cleanup(document.getElementById("skWidgetRegister"));
+      });      
+      
+    </script>
   </body>
 </html>
