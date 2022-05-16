@@ -131,7 +131,7 @@ fastify.post("/validateToken", function(request, reply) {
     let params = {   };
 
 
-    reply.view("/src/pages/agenda.hbs", params);
+    reply.send({"sub" : payload.sub});
   })();
   
 });
