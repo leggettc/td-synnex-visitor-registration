@@ -39,6 +39,8 @@
       }
 
     </style>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
     <!-- Bootstrap core JS-->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -172,7 +174,7 @@
       </div>
 
     
-    <div id="agendaDiv" class="collaspe m-5">
+    <div id="agendaDiv" class="collaspe m-5" style="visibility: hidden;">
     <section id="bodysection" class="register">
         <br>
         <h1>
@@ -257,12 +259,6 @@
           2022</span>
       </div>
     </footer>
-    <script>
-      var agendaDiv = document.getElementById("agendaDiv");
-      var bsCollapse = new bootstrap.Collapse(agendaDiv);   
-      bsCollapse.hide();    
-    
-    </script>
     <!-- Core theme JS-->
   </body>
 </html>
