@@ -53,6 +53,8 @@
       
       function loadRegisterWidget() {
         
+        singularkey.cleanup(document.getElementById("skWidgetSignIn"))
+        
         var policyId = "{{reg_policy_id}}";
 
         var props = {
@@ -78,6 +80,9 @@
       }     
       
       function loadSignInWidget() {
+        
+        singularkey.cleanup(document.getElementById("skWidgetRegister"))
+        
         var policyId = "{{auth_policy_id}}";
 
         var props = {
@@ -107,7 +112,7 @@
           //console.log("A successful response!");
           //console.log("Response ID Token: " + response.id_token);
           if(response.id_token != null){
-            validateToken({token : response.id_token });       
+            validateToken({token : response.id_token });  
             //document.getElementById("token").value = response.id_token;
             //console.log("access_token: ", response.id_token);
             //document.getElementById("frmContinue").submit();
@@ -120,7 +125,8 @@
       }
 
       function onCloseModal() {
-        console.log("onCloseModal");
+        console.log("onCloseModal");        
+        
       } 
       
       function postForm(tokenValue){
@@ -280,7 +286,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="registerModalLongTitle">Register Here</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button id="btnRegisterModalClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               
           </div>
           <div id="skWidgetRegister" class="modal-body">
@@ -305,7 +311,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="signInModalLongTitle">Sign In</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button id="btnSignInModalClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               
           </div>
           <div id="skWidgetSignIn" class="modal-body">
