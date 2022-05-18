@@ -260,11 +260,12 @@
         <div class="col">
           <button
             type="button"
-            class="btn btn-primary btn-sm rounded-pill float-end"
+            class="btn btn-primary btn-sm rounded-pill float-end mb-3"
             data-bs-toggle="modal"
             data-bs-target="#qrCodeModal"                
           ><strong>View on Your Device</strong>
-          </button>          
+          </button>  
+          
         </div>
       </div>
       <div class="row">
@@ -375,14 +376,14 @@
       aria-labelledby="signInModalCenterTitle"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="qrCodeModalLongTitle">Scan Me</h5>
               <button id="btnQRCodeModalClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               
           </div>
-          <img src="https://cdn.glitch.global/e20c0292-d3af-4f74-beac-c3a5ce232497/SignInQRCode.png?v=1652891359005" />
+          <img class="width: 50%; height: auto; " src="https://cdn.glitch.global/e20c0292-d3af-4f74-beac-c3a5ce232497/SignInQRCode.png?v=1652891359005" />
           <div class="modal-footer">
             <!--
             <button
