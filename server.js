@@ -153,11 +153,25 @@ fastify.get("/signin", function(request, reply) {
   // Build the params object to pass to the template
   
   var tid = request.query.tid;
+  simpleCache.del(tid);
   
-  let params = {   };
   
-  reply.view("/src/pages/index.hbs", params);
+  reply.redirect("/?signin=true");
 });
+
+fastify.get("/checktid", function(request, reply) {
+  
+  var tid = request.query.tid;
+  var foundtid = simpleCache.get(tid);
+  var result = "false";
+  
+  if(tid == foundtid){
+    result = "true";
+  }
+  
+  reply.send({tidFound: result});
+  
+}
 
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, '0.0.0.0', function(err, address) {
