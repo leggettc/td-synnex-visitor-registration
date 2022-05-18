@@ -428,6 +428,17 @@
         singularkey.cleanup(document.getElementById("skWidgetRegister"));
       });      
       
+      function displaySignInModal(){
+        const params = new URLSearchParams(window.location.search);
+        
+        if(params.has("showsignin")){
+          if(params.get(showsignin) == "true"){
+            
+          }
+        }
+
+      }
+      
       function refresh() {
         console.log("Call made...");
         

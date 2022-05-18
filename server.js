@@ -161,7 +161,7 @@ fastify.get("/signin", function(request, reply) {
     console.log("tid: " + tid + " not found...");
   }
   
-  reply.redirect("/?signin=true");
+  reply.redirect("/?showsignin=true");
 });
 
 fastify.get("/checktid", function(request, reply) {
