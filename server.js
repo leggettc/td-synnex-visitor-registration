@@ -153,8 +153,13 @@ fastify.get("/signin", function(request, reply) {
   // Build the params object to pass to the template
   
   var tid = request.query.tid;
-  simpleCache.del(tid);
+  var numdeleted = simpleCache.del(tid);
   
+  if(numdeleted == 1){
+    console.log("tid: " + tid + " removed from cache.");
+  } else {
+    console.log("tid: " + tid + " not found...");
+  }
   
   reply.redirect("/?signin=true");
 });
