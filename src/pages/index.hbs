@@ -190,7 +190,7 @@
       }
     </script>    
   </head>
-  <body id="page-top">
+  <body id="page-top" onload="displaySignInModal();">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container px-5">
@@ -387,7 +387,7 @@
           <canvas id="qrcode"></canvas>
           <script type="text/javascript">
             var tid="{{tid}}"
-            new QRious({element: document.getElementById("qrcode"), value: "https://cyberrange-registration.glitch.me/signin?tid="+tid});
+            new QRious({element: document.getElementById("qrcode"), value: "https://cyberrange-registration.glitch.me/signin?tid="+tid+"&email="});
           </script>          
           <!--
           <img class="width: 50%; height: auto; " src="https://cdn.glitch.global/e20c0292-d3af-4f74-beac-c3a5ce232497/SignInQRCode.png?v=1652891359005" />
@@ -432,11 +432,11 @@
         const params = new URLSearchParams(window.location.search);
         
         if(params.has("showsignin")){
-          if(params.get(showsignin) == "true"){
-            
+          if(params.get("showsignin") == "true"){
+            loadSignInWidget();
+            $('#signInModal').modal('show'); 
           }
         }
-
       }
       
       function refresh() {
