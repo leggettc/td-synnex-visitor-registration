@@ -177,7 +177,7 @@
           document.getElementById("registerLi").style.display = "none";
           document.getElementById("signInLi").style.display = "none";
           document.getElementById("profileLi").style.display = "block";
-          document.getElementById("agendaDiv").style.visibility = "visible";
+          document.getElementById("agendaDiv").style.display = "block";
           $('#registerModal').modal('hide');   
           $('#signInModal').modal('hide');  
           
@@ -230,6 +230,8 @@
             evolving compliance mandates and reducing the threat of
             cyberattacks.
           </p>
+          <div id="registerbtndiv">
+            
           <button
             id="mainRegisterbtn"
             type="button"
@@ -240,11 +242,12 @@
           >
             Register
           </button>
+          </div>
         </div>
       </div>
 
     
-    <div id="agendaDiv" class="collaspe m-5" style="visibility: hidden;">
+    <div name="agendaDiv" id="agendaDiv" class="collaspe m-5" style="visibility: hidden;">
     <section id="bodysection" class="register">
         <br>
         <h1>
@@ -359,15 +362,14 @@
     <script>
       
       document.getElementById("profileLi").style.display = "none";
+      document.getElementById("agendaDiv").style.display = "none";
       
       document.getElementById("signInModal").addEventListener('hidden.bs.modal', function (event) {    
         singularkey.cleanup(document.getElementById("skWidgetSignIn"));
-        $('#signInModal').modal('dispose'); 
       });
       
       document.getElementById("registerModal").addEventListener('hidden.bs.modal', function (event) {
         singularkey.cleanup(document.getElementById("skWidgetRegister"));
-        $('#registerModal').modal('dispose'); 
       });      
       
     </script>
