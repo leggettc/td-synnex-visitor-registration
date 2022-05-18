@@ -171,7 +171,7 @@ fastify.get("/checktid", function(request, reply) {
   
   reply.send({tidFound: result});
   
-}
+});
 
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, '0.0.0.0', function(err, address) {
