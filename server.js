@@ -136,7 +136,7 @@ fastify.post("/validateToken", function(request, reply) {
   
 });
 
-fastify.get("/agenda", function(request, reply) {
+fastify.get("/signin", function(request, reply) {
   
   // Build the params object to pass to the template
   let params = {   };
