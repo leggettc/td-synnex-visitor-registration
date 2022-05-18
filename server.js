@@ -9,6 +9,13 @@ const NodeCache = require( "node-cache" );
 const jose = require('jose')
 const simpleCache = new NodeCache();
 
+function CreateUUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
 // Require the fastify framework and instantiate it
 const fastify = require("fastify")({
   // Set this to true for detailed logging:
@@ -59,17 +66,22 @@ fastify.get("/", function(request, reply) {
     })
     .json()
     .then(data => {
-         
+       
+      var tid = CreateUUID();
+      simpleCache.set(tid, tid); 
+    
        params = {
         access_token: data.access_token,
         api_key : process.env.API_KEY,
         company_id: process.env.COMPANY_ID,
         base_url: process.env.BASE_URL,
         reg_policy_id: process.env.REG_POLICY_ID,
-        auth_policy_id: process.env.AUTH_POLICY_ID
+        auth_policy_id: process.env.AUTH_POLICY_ID,
+        tid: tid
+         
       };
     
-      simpleCache.set("access_token", data.access_token);
+      simpleCache.set("access_token", data.access_token); 
     
       console.log("params: ", JSON.stringify(params));
       reply.view("/src/pages/index.hbs", params);
@@ -139,9 +151,12 @@ fastify.post("/validateToken", function(request, reply) {
 fastify.get("/signin", function(request, reply) {
   
   // Build the params object to pass to the template
+  
+  var tid = request.query.tid;
+  
   let params = {   };
   
-  reply.view("/src/pages/agenda.hbs", params);
+  reply.view("/src/pages/index.hbs", params);
 });
 
 // Run the server and report out to the logs
