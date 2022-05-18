@@ -83,8 +83,7 @@
       src="https://sdk.singularkey.com/latest/singularkey.js"
     ></script>     
     <script type="text/javascript">                       
-      
-      var tid = "{{tid}}";
+    
       
       function loadRegisterWidget() {
         
@@ -410,6 +409,8 @@
     <!-- Core theme JS-->
     <script>
       
+      var tid = "{{tid}}";
+      
       document.getElementById("profileLi").style.display = "none";
       
       document.getElementById("signInModal").addEventListener('hidden.bs.modal', function (event) {    
@@ -423,23 +424,21 @@
       function refresh() {
         console.log("Call made...");
         
-        fetch('https://cyberrange-registration.glitch.me/validateToken', {
-          method: 'POST', 
+        fetch('/checktid?tid=' + tid, {
+          method: 'GET', 
           headers: {
             'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
+          }
         })
         .then(response => response.json())
         .then(data => {
-          console.log('Success:', data);
-          document.getElementById("mainRegisterbtn").style.display = "none";
-          document.getElementById("registerLi").style.display = "none";
-          document.getElementById("signInLi").style.display = "none";
-          document.getElementById("profileLi").style.display = "block";
-          $('#registerModal').modal('hide');   
-          $('#signInModal').modal('hide');  
-          document.getElementById("agendaDiv").style.display = "block";
+          if(data.tidfound == "false"){
+            console.log("tid :" + tid +" is not found. redirecting back to home.");
+            window.location("/");
+          }  else {
+            console.log("tid :" + tid +" is found. lets continue to poll...");
+ 
+          }
           
         })
         .catch((error) => {
