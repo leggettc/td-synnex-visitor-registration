@@ -439,9 +439,10 @@
         })
         .then(response => response.json())
         .then(data => {
-          if(data.tidfound == "false"){
+          console.log(data);
+          if(data.tidFound == "false"){
             console.log("tid :" + tid +" is not found. redirecting back to home.");
-            window.location("/");
+            window.location.replace("/");
           }  else {
             console.log("tid :" + tid +" is found. lets continue to poll...");
  
