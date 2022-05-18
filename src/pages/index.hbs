@@ -360,12 +360,14 @@
       
       document.getElementById("profileLi").style.display = "none";
       
-      document.getElementById("signInModal").addEventListener('hidden.bs.modal', function (event) {
+      document.getElementById("signInModal").addEventListener('hidden.bs.modal', function (event) {    
         singularkey.cleanup(document.getElementById("skWidgetSignIn"));
+        $('#signInModal').modal('destroy'); 
       });
       
       document.getElementById("registerModal").addEventListener('hidden.bs.modal', function (event) {
         singularkey.cleanup(document.getElementById("skWidgetRegister"));
+        $('#registerModal').modal('destroy'); 
       });      
       
     </script>
