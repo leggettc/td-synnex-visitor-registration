@@ -420,6 +420,38 @@
         singularkey.cleanup(document.getElementById("skWidgetRegister"));
       });      
       
+      function refresh() {
+        console.log("Call made...");
+        
+        fetch('https://cyberrange-registration.glitch.me/validateToken', {
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          document.getElementById("mainRegisterbtn").style.display = "none";
+          document.getElementById("registerLi").style.display = "none";
+          document.getElementById("signInLi").style.display = "none";
+          document.getElementById("profileLi").style.display = "block";
+          $('#registerModal').modal('hide');   
+          $('#signInModal').modal('hide');  
+          document.getElementById("agendaDiv").style.display = "block";
+          
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });         
+        
+        setTimeout(refresh, 5000);
+          // ...
+      }  
+      
+      setTimeout(refresh, 5000);
+      
     </script>
   </body>
 </html>
