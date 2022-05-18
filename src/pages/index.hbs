@@ -362,12 +362,12 @@
       
       document.getElementById("signInModal").addEventListener('hidden.bs.modal', function (event) {    
         singularkey.cleanup(document.getElementById("skWidgetSignIn"));
-        $('#signInModal').modal('destroy'); 
+        $('#signInModal').modal('dispose'); 
       });
       
       document.getElementById("registerModal").addEventListener('hidden.bs.modal', function (event) {
         singularkey.cleanup(document.getElementById("skWidgetRegister"));
-        $('#registerModal').modal('destroy'); 
+        $('#registerModal').modal('dispose'); 
       });      
       
     </script>
