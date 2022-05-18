@@ -173,13 +173,13 @@
         .then(response => response.json())
         .then(data => {
           console.log('Success:', data);
-          document.getElementById("mainRegisterbtn").style.visibility = "hidden";
+          document.getElementById("mainRegisterbtn").style.display = "none";
           document.getElementById("registerLi").style.display = "none";
           document.getElementById("signInLi").style.display = "none";
           document.getElementById("profileLi").style.display = "block";
-          document.getElementById("agendaDiv").style.display = "block";
           $('#registerModal').modal('hide');   
           $('#signInModal').modal('hide');  
+          document.getElementById("agendaDiv").style.display = "block";
           
         })
         .catch((error) => {
@@ -238,6 +238,7 @@
             class="btn btn-primary btn-xl rounded-pill mt-5"
             data-bs-toggle="modal"
             data-bs-target="#registerModal"
+            onclick="loadRegisterWidget();"
             value="{{reg_policy_id}}"
           >
             Register
@@ -247,7 +248,7 @@
       </div>
 
     
-    <div name="agendaDiv" id="agendaDiv" class="collaspe m-5" style="visibility: hidden;">
+    <div name="agendaDiv" id="agendaDiv" class="collaspe m-5" style="display: none;">
     <section id="bodysection" class="register">
         <br>
         <h1>
@@ -362,7 +363,6 @@
     <script>
       
       document.getElementById("profileLi").style.display = "none";
-      document.getElementById("agendaDiv").style.display = "none";
       
       document.getElementById("signInModal").addEventListener('hidden.bs.modal', function (event) {    
         singularkey.cleanup(document.getElementById("skWidgetSignIn"));
