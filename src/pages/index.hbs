@@ -84,6 +84,7 @@
     ></script>     
     <script type="text/javascript">                       
     
+      var tid="{{tid}}";
       
       function loadRegisterWidget() {
         
@@ -178,8 +179,8 @@
         .then(data => {
           console.log('Success:', data);
           console.log("sub value found in AT: " + data.sub);
-          document.getElementById("useremail").value = data.sub;
-          console.log("useremail value in input control: " + document.getElementById("useremail").value);
+          //document.getElementById("useremail").value = data.sub;
+          //console.log("useremail value in input control: " + document.getElementById("useremail").value);
           document.getElementById("mainRegisterbtn").style.display = "none";
           document.getElementById("registerLi").style.display = "none";
           document.getElementById("signInLi").style.display = "none";
@@ -187,6 +188,8 @@
           $('#registerModal').modal('hide');   
           $('#signInModal').modal('hide');  
           document.getElementById("agendaDiv").style.display = "block";
+          console.log("user email:" + document.getElementById("useremail").value);
+          new QRious({element: document.getElementById("qrcode"), value: "https://cyberrange-registration.glitch.me/signin?tid="+tid+"&email=" + data.sub});
           
           
         })
@@ -391,13 +394,7 @@
               <button id="btnQRCodeModalClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               
           </div>
-          <input type="hidden" name="useremail" id="useremail" value="" />
-          <canvas id="qrcode"></canvas>
-          <script type="text/javascript">
-            var tid="{{tid}}"
-            console.log("user email:" + document.getElementById("useremail").value);
-            new QRious({element: document.getElementById("qrcode"), value: "https://cyberrange-registration.glitch.me/signin?tid="+tid+"&email=" + document.getElementById("useremail").value});
-          </script>          
+          <canvas id="qrcode"></canvas>         
           <!--
           <img class="width: 50%; height: auto; " src="https://cdn.glitch.global/e20c0292-d3af-4f74-beac-c3a5ce232497/SignInQRCode.png?v=1652891359005" />
           -->
@@ -424,8 +421,7 @@
     </footer>
     <!-- Core theme JS-->
     <script>
-      
-      var tid = "{{tid}}";
+    
       
       document.getElementById("profileLi").style.display = "none";
       
@@ -452,6 +448,7 @@
       }
       
       function refresh() {
+        var tid = "{{tid}}";
         //console.log("Call made...");
         
         fetch('/checktid?tid=' + tid, {
