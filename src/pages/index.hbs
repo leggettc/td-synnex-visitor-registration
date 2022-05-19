@@ -442,9 +442,11 @@
           if(params.get("showsignin") == "true"){
             if(params.has("email")){
               email =  params.get("email");
+              console.log("email: " + email);
+              loadSignInWidget(email);
             }
-            loadSignInWidget(email);
-            $('#signInModal').modal('hide');
+
+            $('#signInModal').modal('show');
           }
         }
       }
