@@ -112,7 +112,7 @@
         
       }     
       
-      function loadSignInWidget() {
+      function loadSignInWidget(email) {
                 
         var policyId = "{{auth_policy_id}}";
 
@@ -122,7 +122,10 @@
             apiRoot: "https://api.singularkey.com/v1",
             accessToken: "{{access_token}}",
             companyId: "{{company_id}}",
-            policyId: policyId
+            policyId: policyId,
+            parameters: {
+              "email" : email
+            }
           },
           useModal: false,
           successCallback,
@@ -209,7 +212,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto">
             <li id="registerLi" class="nav-item"><a id="registerLink" class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#registerModal" onclick="loadRegisterWidget();">Register</a></li>
-            <li id="signInLi" class="nav-item"><a id="signInLink" class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#signInModal" onclick="loadSignInWidget();">Sign In</a></li>
+            <li id="signInLi" class="nav-item"><a id="signInLink" class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#signInModal" onclick="loadSignInWidget('');">Sign In</a></li>
             <li id="profileLi" class="nav-item"><a id="profileLink" class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#profileModal">Account</a></li>
           </ul>
         </div>
@@ -433,12 +436,15 @@
       
       function displaySignInModal(){
         const params = new URLSearchParams(window.location.search);
+        var email = "";
         
         if(params.has("showsignin")){
           if(params.get("showsignin") == "true"){
-            loadSignInWidget();
-            $('#signInModal').modal('show');
-            document.getElementById("")            
+            if(params.has("email")){
+              email =  params.get("email");
+            }
+            loadSignInWidget(email);
+            $('#signInModal').modal('hide');
           }
         }
       }
