@@ -443,8 +443,9 @@
         
         if(params.has("showsignin")){
           if(params.get("showsignin") == "true"){
+              email = params.get("email");
               console.log("email: " + email);
-              loadSignInWidget("");
+              loadSignInWidget(email);
             $('#signInModal').modal('show');
           }
         }
