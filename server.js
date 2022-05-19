@@ -153,6 +153,7 @@ fastify.get("/signin", function(request, reply) {
   // Build the params object to pass to the template
   
   var tid = request.query.tid;
+  var email = request.query.email;
   var numdeleted = simpleCache.del(tid);
   
   if(numdeleted == 1){
@@ -161,7 +162,7 @@ fastify.get("/signin", function(request, reply) {
     console.log("tid: " + tid + " not found...");
   }
   
-  reply.redirect("/?showsignin=true");
+  reply.redirect("/?showsignin=true&email=" + email);
 });
 
 fastify.get("/checktid", function(request, reply) {

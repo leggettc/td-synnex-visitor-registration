@@ -177,8 +177,9 @@
         .then(response => response.json())
         .then(data => {
           console.log('Success:', data);
-          document.getElementById("useremail").value = data.sub;
           console.log("sub value found in AT: " + data.sub);
+          document.getElementById("useremail").value = data.sub;
+          console.log("useremail value in input control: " + document.getElementById("useremail").value);
           document.getElementById("mainRegisterbtn").style.display = "none";
           document.getElementById("registerLi").style.display = "none";
           document.getElementById("signInLi").style.display = "none";
@@ -390,7 +391,7 @@
               <button id="btnQRCodeModalClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               
           </div>
-          <input type="hidden" id="useremail" value="" />
+          <input type="hidden" name="useremail" id="useremail" value="" />
           <canvas id="qrcode"></canvas>
           <script type="text/javascript">
             var tid="{{tid}}"
