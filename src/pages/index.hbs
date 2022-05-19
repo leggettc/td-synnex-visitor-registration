@@ -178,6 +178,7 @@
         .then(data => {
           console.log('Success:', data);
           document.getElementById("useremail").value = data.sub;
+          console.log("sub value found in AT: " + data.sub);
           document.getElementById("mainRegisterbtn").style.display = "none";
           document.getElementById("registerLi").style.display = "none";
           document.getElementById("signInLi").style.display = "none";
@@ -393,6 +394,7 @@
           <canvas id="qrcode"></canvas>
           <script type="text/javascript">
             var tid="{{tid}}"
+            console.log("user email:" + document.getElementById("useremail").value);
             new QRious({element: document.getElementById("qrcode"), value: "https://cyberrange-registration.glitch.me/signin?tid="+tid+"&email=" + document.getElementById("useremail").value});
           </script>          
           <!--
@@ -448,7 +450,7 @@
       }
       
       function refresh() {
-        console.log("Call made...");
+        //console.log("Call made...");
         
         fetch('/checktid?tid=' + tid, {
           method: 'GET', 
@@ -458,12 +460,12 @@
         })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          //console.log(data);
           if(data.tidFound == "false"){
-            console.log("tid :" + tid +" is not found. redirecting back to home.");
+            //console.log("tid :" + tid +" is not found. redirecting back to home.");
             window.location.replace("/");
           }  else {
-            console.log("tid :" + tid +" is found. lets continue to poll...");
+            //console.log("tid :" + tid +" is found. lets continue to poll...");
  
           }
           
