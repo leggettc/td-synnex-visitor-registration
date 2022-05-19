@@ -188,7 +188,7 @@
           $('#registerModal').modal('hide');   
           $('#signInModal').modal('hide');  
           document.getElementById("agendaDiv").style.display = "block";
-          console.log("user email:" + document.getElementById("useremail").value);
+          //console.log("user email:" + document.getElementById("useremail").value);
           new QRious({element: document.getElementById("qrcode"), value: "https://cyberrange-registration.glitch.me/signin?tid="+tid+"&email=" + data.sub});
           
           
