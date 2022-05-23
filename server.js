@@ -3,6 +3,7 @@
 * Check out the two endpoints this back-end API provides in fastify.get and fastify.post below
 */
 
+require('dotenv').config();
 const path = require("path");
 const got = require("got"); 
 const NodeCache = require( "node-cache" );
