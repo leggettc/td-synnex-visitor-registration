@@ -78,6 +78,8 @@ fastify.get("/", function(request, reply) {
         base_url: process.env.BASE_URL,
         reg_policy_id: process.env.REG_POLICY_ID,
         auth_policy_id: process.env.AUTH_POLICY_ID,
+        sign_in_uri: process.env.SIGN_IN_URI,
+        validate_token_uri: process.env.VALIDATE_TOKEN_URI,
         tid: tid
          
       };

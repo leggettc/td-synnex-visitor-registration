@@ -168,7 +168,7 @@
 
         var sub = "";
         
-        fetch('https://cyberrange-registration.glitch.me/validateToken', {
+        fetch("{{validate_token_uri}}", {
           method: 'POST', 
           headers: {
             'Content-Type': 'application/json',
@@ -179,8 +179,6 @@
         .then(data => {
           console.log('Success:', data);
           console.log("sub value found in AT: " + data.sub);
-          //document.getElementById("useremail").value = data.sub;
-          //console.log("useremail value in input control: " + document.getElementById("useremail").value);
           document.getElementById("mainRegisterbtn").style.display = "none";
           document.getElementById("registerLi").style.display = "none";
           document.getElementById("signInLi").style.display = "none";
@@ -188,8 +186,8 @@
           $('#registerModal').modal('hide');   
           $('#signInModal').modal('hide');  
           document.getElementById("agendaDiv").style.display = "block";
-          //console.log("user email:" + document.getElementById("useremail").value);
-          new QRious({element: document.getElementById("qrcode"), value: "https://cyberrange-registration.glitch.me/signin?tid="+tid+"&email=" + data.sub});
+          const signInUri = "{{sign_in_uri}}" + "?tid=" + tid + "&email=" + data.sub; 
+          new QRious({element: document.getElementById("qrcode"), value: signInUri});
           
           
         })
