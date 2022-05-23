@@ -79,6 +79,7 @@ fastify.get("/", function(request, reply) {
         auth_policy_id: process.env.AUTH_POLICY_ID,
         sign_in_uri: process.env.SIGN_IN_URI,
         validate_token_uri: process.env.VALIDATE_TOKEN_URI,
+        qrcode_policy_id: process.env.QRCODE_POLICY_ID,
         tid: tid
          
       };
