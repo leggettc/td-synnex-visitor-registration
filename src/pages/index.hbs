@@ -113,6 +113,38 @@
         
       }     
       
+      function loadQRCodeWidget(tid ) {
+        
+        var policyId = "{{qrcode_policy_id}}";
+        var email = document.getElementById("username").value;
+
+        var props = {
+          config: {
+            method: "runFlow",
+            apiRoot: "https://api.singularkey.com/v1",
+            accessToken: "{{access_token}}",
+            companyId: "{{company_id}}",
+            policyId: policyId,
+            parameters: {
+              "email" : email,
+              "tid" : tid,
+              "url" : "{{sign_in_uri}}"
+            }
+          },
+          useModal: false,
+          successCallback,
+          errorCallback,
+          onCloseModal,
+        };
+        /*** Invoke Singular Key Widget ****/
+        console.log(props);
+        singularkey.skRenderScreen(
+          document.getElementById("skWidgetQRCode"),
+          props
+        );          
+      }        
+      
+      
       function loadSignInWidget(email) {
                 
         var policyId = "{{auth_policy_id}}";
@@ -186,9 +218,7 @@
           $('#registerModal').modal('hide');   
           $('#signInModal').modal('hide');  
           document.getElementById("agendaDiv").style.display = "block";
-          const signInUri = "{{sign_in_uri}}" + "?tid=" + tid + "&email=" + data.sub; 
-          new QRious({element: document.getElementById("qrcode"), value: signInUri});
-          
+          document.getElementById("username").value = data.sub;          
           
         })
         .catch((error) => {
@@ -271,7 +301,8 @@
             type="button"
             class="btn btn-primary btn-sm rounded-pill float-end mb-3"
             data-bs-toggle="modal"
-            data-bs-target="#qrCodeModal"                
+            data-bs-target="#qrCodeModal"
+            onclick='loadQRCodeWidget("{{tid}}");'
           ><strong>View on Your Device</strong>
           </button>  
           
@@ -386,16 +417,14 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <input type="hidden" id="username" />
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="qrCodeModalLongTitle">Scan Me</h5>
               <button id="btnQRCodeModalClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               
           </div>
-          <canvas id="qrcode"></canvas>         
-          <!--
-          <img class="width: 50%; height: auto; " src="https://cdn.glitch.global/e20c0292-d3af-4f74-beac-c3a5ce232497/SignInQRCode.png?v=1652891359005" />
-          -->
+          <div id="skWidgetQRCode" class="modal-body" />
           <div class="modal-footer">
             <!--
             <button
