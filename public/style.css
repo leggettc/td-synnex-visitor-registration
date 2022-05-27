@@ -3211,8 +3211,8 @@ fieldset:disabled .btn {
 .btn-secondary:disabled,
 .btn-secondary.disabled {
   color: #FFF;
-  background-color: #ff6a00;
-  border-color: #ff6a00;
+  background-color: #CFD454;
+  border-color: #CFD454;
 }
 
 .btn-success {
@@ -3737,11 +3737,11 @@ fieldset:disabled .btn {
 
 .btn-link {
   font-weight: 400;
-  color: #ee0979;
+  color: #1c3044;
   text-decoration: underline;
 }
 .btn-link:hover {
-  color: #be0761;
+  color: #1c3044;
 }
 .btn-link:disabled,
 .btn-link.disabled {
@@ -5720,7 +5720,7 @@ fieldset:disabled .btn {
 }
 .btn-close:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(238, 9, 121, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(28, 48, 68, 0.25);
   opacity: 1;
 }
 .btn-close:disabled,
